@@ -1,0 +1,61 @@
+body{
+    background-color: black;
+  }
+  .video-container {
+    position: relative;
+    padding-bottom: 100%;
+    height:100%;
+  
+  }
+  i{
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+  }
+  .video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin:0px;
+  }
+  .carousel-inner:hover {
+    animation: portada 3s;
+  }
+  
+  @keyframes portada {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.01);
+    }
+  }
+  article:hover{
+    animation: ropa 0.5s;
+  }
+  @keyframes ropa {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.04);
+    }
+  }
+  formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+  }
+  
+  .formulario__grupo-incorrecto .formulario__label {
+    color: #bb2929;
+  }
+  
+  .formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+  }
+  
+  .formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #bb2929;
+  }
