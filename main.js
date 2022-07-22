@@ -1,3 +1,8 @@
+let saludo = document.getElementById("saludo");
+let nomSaludo = JSON.stringify(sessionStorage.getItem("nombre"));
+console.log(saludo);
+saludo.innerHTML =  nomSaludo + " Cuentanos mas sobre tí..."  
+
 const formulario = document.getElementById("form");
 const inputs = document.querySelectorAll("#form input");
 //validaciones
@@ -43,9 +48,16 @@ const validarForm = (e) => {
 inputs.forEach((input) => {
     input.addEventListener("keyup", validarForm);
     }); 
+
+let salida =  document.getElementById("enviado");
+
+const exit = () => {
+    salida.innerHTML = "Formulario enviado exitosamente. ¡Recibiras una respuesta en los proximos 7 dias!"
+}
+
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-    validarForm();
     console.log("Form enviado");
+    exit();
 }); 
 

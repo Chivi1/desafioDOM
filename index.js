@@ -5,23 +5,23 @@ const expresiones = {
 const formularioInicial = document.getElementById("formulario");
 const inputsInicial = document.querySelectorAll("#formulario input");
 
-const loginInicial = (e)=> {
+const loginInicial = (e) => {
     switch (e.target.name) {
-        case"nombre":
+        case "nombre":
             if (expresiones.nombre.test(e.target.value)) {
                 document.getElementById("nombreform").classList.remove("text-danger");
                 document.getElementById("nombreform").classList.add("text-success");
-            } else{
+            } else {
                 document.getElementById("nombreform").classList.add("text-danger");
                 document.getElementById("nombreform").classList.remove("text-success");
                 console.log("Nombre invalido");
             }
         break;
-        case"apellido":
+        case "apellido":
         if (expresiones.nombre.test(e.target.value)) {
             document.getElementById("apellidoform").classList.remove("text-danger");
             document.getElementById("apellidoform").classList.add("text-success");
-        } else{
+        } else {
             document.getElementById("apellidoform").classList.add("text-danger")
             document.getElementById("apellidoform").classList.remove("text-success");
         }
@@ -34,15 +34,36 @@ formulario.addEventListener("submit", (e) => {
     console.log("Form enviado");
 }); 
 
-//funcion para redirigir al formulario de page.html
-function redirect() {
-    formulario.addEventListener("submit", (e) => {
-    window.location="page.html";
-    }
-)}
-redirect();
+//validacion nombre
+let alerta =  document.getElementById("alerta");
 
-let nom = document.getElementById("nombreform").value;
-let apel = document.getElementById("apellidoform").value;
-localStorage.setItem("nombre", nom)
-localStorage.setItem("apellido", apel)
+const stay = () => {
+    alerta.innerHTML = "El nombre es OBLIGATORIO";
+}
+
+//funcion para redirigir al formulario de page.html
+
+formulario.addEventListener("submit", (e) => {
+    let nom = document.getElementById("nombre_input").value;
+    let apel = document.getElementById("apellido_input").value;
+    console.log(nom)
+    sessionStorage.setItem("nombre", nom)
+    sessionStorage.setItem("apellido", apel)
+    
+    if (nom.value == undefined || null || "") {
+        stay();
+    } else {
+        window.location = "page.html";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
