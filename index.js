@@ -12,7 +12,7 @@ let alerta =  document.getElementById("alerta");
 const stay = () => {
     alerta.classList.remove("text-success");
     alerta.classList.add("text-danger");
-    alerta.innerHTML = "El nombre es OBLIGATORIO";
+    alerta.innerHTML = "El nombre es OBLIGATORIO.";
 }
 const go = () => {
     alerta.classList.remove("text-danger");
@@ -58,8 +58,11 @@ formulario.addEventListener("submit", (e) => {
     console.log(nom)
     sessionStorage.setItem("nombre", nom)
     sessionStorage.setItem("apellido", apel)
-    
-    alerta.className.includes("text-success") ? window.location = "page.html" : stay();
+    alerta.className.includes("text-success") ? window.location = "page.html" : stay(), Swal.fire({
+                                                                                                icon: 'error',
+                                                                                                title: 'Oops...',
+                                                                                                text: '¡El nombre es obligatorio!',
+                                                                                            });
     
 });
 

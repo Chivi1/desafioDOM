@@ -58,6 +58,13 @@ const exit = () => {
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log("Form enviado");
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡Formulario enviado!',
+        showConfirmButton: false,
+        timer: 1500
+    })
     exit();
 }); 
 

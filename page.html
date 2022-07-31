@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="recursos/btredondo-min.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Blacktail, Esports, Mendoza, Gaming, Argentina">
     <meta name="description" content="Sé parte de Blacktail Esports. Blacktail Esports es un equipo semiprofesional de esports con base en Mendoza, Argentina. Actualmente trabajando con la disciplina de League of Legends en busca de ampliar horizontes para el gaming del interior del pais">
@@ -56,16 +57,16 @@
             <div class="card-body bg-dark px-5 text-white">
                 <form id="form">
                     <div class="mb-3 px-5" id="group_nombre">
-                        <label for="text-name" class="form-label">Nombre Completo:</label>
-                            <input type="text"  placeholder="Nombre completo" class="form-control" name="nombre" aria-describedby="emailHelp">
+                        <label for="text-name" class="form-label">Nombre Completo:*</label>
+                            <input type="text"  placeholder="Nombre completo" class="form-control" id="nompage" name="nombre" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3 px-5" id="group_correo">
-                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico:</label>
-                        <input type="text"  placeholder="Correo Electrónico" class="form-control" name="correo" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico:*</label>
+                        <input type="text"  placeholder="Correo Electrónico" class="form-control" id="emailpage" name="correo" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3 px-5" id="group_telefono">
-                            <label for="phone" class="form-label">Teléfono:</label>
-                            <input type="text" placeholder="Numero de teléfono" class="form-control"  name="telefono" id="telefono" aria-describedby="emailHelp">
+                            <label for="phone" class="form-label">Teléfono:*</label>
+                            <input type="text" placeholder="Numero de teléfono" class="form-control" id="telpage" name="telefono" id="telefono" aria-describedby="emailHelp">
                         </div>
                     <div class="mb-3 px-5">
                         <label for="radio" class="form-label">Sexo:</label>
@@ -152,6 +153,7 @@
                             <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Cargar</button>
                         </div>
+                        <div class= "m-3 px-5 text-danger text-center" id="alerta"> (*): OBLIGATORIO</div>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Enviar</button>
                     <div class="m-3 px-5 text-success text-center" id="enviado"></div>
@@ -179,5 +181,6 @@
     </div>
     <!--javascript-->
     <script src="./main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>
