@@ -58,13 +58,20 @@ const exit = () => {
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log("Form enviado");
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: '¡Formulario enviado!',
-        showConfirmButton: false,
-        timer: 1500
-    })
+    var datos = new FormData("formulario");
+    const newPost = {
+        title: "new post",
+        body: "formulario blacktail",
+        userId: 1
+        }
+        fetch('https://jsonplaceholder.typicode.com/posts',{
+            method: 'POST',
+            body: datos
+        })
+        then( res => res.json())
+        then( data => {
+            console.log(data);
+        })
     exit();
 }); 
 
