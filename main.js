@@ -58,7 +58,7 @@ const exit = () => {
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log("Form enviado");
-    var datos = new FormData("formulario");
+    var datos = new FormData (formulario);
     const newPost = {
         title: "new post",
         body: "formulario blacktail",
@@ -66,12 +66,16 @@ formulario.addEventListener("submit", (e) => {
         }
         fetch('https://jsonplaceholder.typicode.com/posts',{
             method: 'POST',
-            body: datos
+            body: JSON.stringify(newPost),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
         })
-        then( res => res.json())
-        then( data => {
+        .then( res => res.json())
+        .then( data => {
             console.log(data);
-        })
+            console.log(datos.get("correo"));
+            });
     exit();
 }); 
 
