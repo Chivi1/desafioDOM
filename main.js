@@ -54,10 +54,12 @@ let salida =  document.getElementById("enviado");
 const exit = () => {
     salida.innerHTML = "Formulario enviado exitosamente. ¡Recibiras una respuesta en los proximos 7 dias!"
 }
+/* let SENDGRID_API_KEY = "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"; */
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log("Form enviado");
+    //get data de los inputs
     var datos = new FormData (formulario);
     const newPost = {
         title: "new post",
@@ -76,6 +78,14 @@ formulario.addEventListener("submit", (e) => {
             console.log(data);
             console.log(datos.get("correo"));
             });
+            //sendgrid para enviar mail de bienvenida a correo de input
+        let mailUsuario = datos.get("correo");
+        fetch(),{
+            method: 'POST',
+            url https://api.sendgrid.com/v3/mail/send \
+            headers: 'Content-Type: application/json', "Authorization: Bearer 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",
+            data:'{"personalizations": [{"to": [{"email": ${mailUsuario} }]}],"from": {"email": "blacktailesports@gmail.com"},"subject": "Sending with SendGrid is Fun","content": [{"type": "text/plain", "value": "and easy to do anywhere, even with cURL"}]}'
+        }
     exit();
 }); 
 
