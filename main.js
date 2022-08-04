@@ -66,7 +66,7 @@ formulario.addEventListener("submit", (e) => {
         body: "formulario blacktail",
         userId: 1
         }
-        fetch('https://jsonplaceholder.typicode.com/posts',{
+        fetch ('https://jsonplaceholder.typicode.com/posts',{
             method: 'POST',
             body: JSON.stringify(newPost),
             headers: {
@@ -79,13 +79,38 @@ formulario.addEventListener("submit", (e) => {
             console.log(datos.get("correo"));
             });
             //sendgrid para enviar mail de bienvenida a correo de input
-        let mailUsuario = datos.get("correo");
-        fetch(),{
-            method: 'POST',
-            url https://api.sendgrid.com/v3/mail/send \
-            headers: 'Content-Type: application/json', "Authorization: Bearer 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",
-            data:'{"personalizations": [{"to": [{"email": ${mailUsuario} }]}],"from": {"email": "blacktailesports@gmail.com"},"subject": "Sending with SendGrid is Fun","content": [{"type": "text/plain", "value": "and easy to do anywhere, even with cURL"}]}'
-        }
+        let mailUsuario =  datos.get("correo");
+        const mailjet = require ('node-mailjet')
+            .connect('****************************1234', '****************************abcd')
+        const request = mailjet
+            .post("send", {'version': 'v3.1'})
+            .request({
+            "Messages":[
+            {
+            "From": {
+                "Email": "paulofr016@gmail.com",
+                "Name": "Francisco"
+            },
+            "To": [
+            {
+                "Email": "paulofr016@gmail.com",
+                "Name": "Francisco"
+            }
+        ],
+            "Subject": "Greetings from Mailjet.",
+            "TextPart": "My first Mailjet email",
+            "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+            "CustomID": "AppGettingStartedTest"
+    }
+    ] 
+    })
+    request
+        .then((result) => {
+        console.log(result.body)
+    })
+        .catch((err) => {
+            console.log(err.statusCode)
+        })
     exit();
 }); 
 
