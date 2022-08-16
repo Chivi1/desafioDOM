@@ -1,5 +1,6 @@
 const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    password: /^.{4,12}$/, // 4 a 12 digitos.
 }
 //login inicial del Index para acceder al formulario de Page
 const formularioInicial = document.getElementById("formulario");
@@ -34,13 +35,13 @@ const loginInicial = (e) => {
                 stay();
             }
         break;
-        case "apellido":
-        if (expresiones.nombre.test(e.target.value)) {
-            document.getElementById("apellidoform").classList.remove("text-danger");
-            document.getElementById("apellidoform").classList.add("text-success");
+        case "password":
+        if (expresiones.password.test(e.target.value)) {
+            document.getElementById("passform").classList.remove("text-danger");
+            document.getElementById("passform").classList.add("text-success");
         } else {
-            document.getElementById("apellidoform").classList.add("text-danger");
-            document.getElementById("apellidoform").classList.remove("text-success");
+            document.getElementById("passform").classList.add("text-danger");
+            document.getElementById("passform").classList.remove("text-success");
         }
     }}
 inputsInicial.forEach((input) => {
@@ -54,7 +55,7 @@ formulario.addEventListener("submit", (e) => {
 
 formulario.addEventListener("submit", (e) => {
     let nom = document.getElementById("nombre_input").value;
-    let apel = document.getElementById("apellido_input").value;
+    let apel = document.getElementById("pass_input").value;
     console.log(nom)
     sessionStorage.setItem("nombre", nom)
     sessionStorage.setItem("apellido", apel)
