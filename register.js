@@ -53,16 +53,26 @@ const registroValidar = (e) => {
         console.log("form enviado");
     });
     formularioRegistro.addEventListener("submit", (f) => {
-        alerta.className.includes("text-success") ? Swal.fire({
+        alerta.className.includes("text-success") ?  Swal.fire({
                                                                 icon: 'success',
                                                                 title: '¡Perfecto!',
                                                                 text: 'Ya estas registrado :)',
                                                                 footer: '<a href="index.html">iniciar sesión</a>'
-                                                            }) : Swal.fire(
+                                                            }) && registrarPersona() : Swal.fire(
                                                                 {
                                                                     icon: 'error',
                                                                     title: 'Oops...',
                                                                     text: '¡Los campos son obligatorios! Revisa tus datos e intentalo nuevamente.',
                                                                 }
                                                                         ); 
-    })
+    });
+const registrarPersona = (r) => {
+        let nombre = document.getElementById("nombre_inputRegistro").value;
+        let usuario = document.getElementById("usuario_inputRegistro").value;
+        let contrasenna = document.getElementById("passFormRegistro").value;
+        let email = document.getElementById("mailRegistro").value;
+        localStorage.setItem("nombre", nombre);
+        localStorage.setItem("usuario", usuario);
+        localStorage.setItem("contraseña", contrasenna);
+        localStorage.setItem("email", email);
+    }
